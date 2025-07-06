@@ -1,0 +1,88 @@
+/* ───── Fact-check highlight ───── */
+.fact-error,
+.fact-check-highlight {
+  background-color: rgba(255, 0, 0, 0.10);
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #dc3545;
+  text-underline-offset: 2px;
+  text-decoration-skip: spaces;
+  cursor: pointer;
+}
+
+.fact-error:hover,
+.fact-check-highlight:hover {
+  background-color: rgba(255, 0, 0, 0.20);
+}
+
+/* dotted fallback */
+@supports not (text-decoration-style: wavy) {
+  .fact-error,
+  .fact-check-highlight {
+    text-decoration: none;
+    border-bottom: 2px dotted #dc3545;
+  }
+}
+
+/* ───── existing styles (leave untouched) ───── */
+.note-editor textarea { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; line-height:1.6; resize:vertical; }
+/* … keep the remainder of your original CSS … */
+
+.hover-shadow {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.navbar-brand        { font-weight: bold; color: #007bff !important; }
+.btn-primary         { background-color: #007bff; border-color: #007bff; }
+.btn-primary:hover   { background-color: #0056b3; border-color: #0056b3; }
+
+/* Toast notifications */
+.Toastify__toast-container { z-index: 9999; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container           { padding-left: 15px; padding-right: 15px; }
+  .note-editor textarea{ min-height: 300px; }
+}
+
+/* Focus state */
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Card hover and pagination styles */
+.card              { transition: transform 0.2s ease-in-out; }
+.card:hover        { transform: translateY(-2px); }
+.badge             { font-size: 0.75em; }
+.pagination .page-link            { color: #007bff; border-color: #dee2e6; }
+.pagination .page-item.active .page-link { background-color: #007bff; border-color: #007bff; }
+.pagination .page-link:focus      { box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+
+/* Footer & misc */
+footer          { margin-top: auto; }
+::selection     { background-color: rgba(0, 123, 255, 0.20); }
+
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar          { width: 8px; }
+::-webkit-scrollbar-track    { background: #f1f1f1; }
+::-webkit-scrollbar-thumb    { background: #c1c1c1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }

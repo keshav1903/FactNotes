@@ -1,0 +1,31 @@
+{
+  "name": "fact-check-notepad",
+  "version": "1.0.0",
+  "description": "A MERN stack notepad with AI-powered fact-checking",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "mongodb",
+    "express",
+    "fact-check",
+    "ai"
+  ],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.13.1"
+  }
+}
