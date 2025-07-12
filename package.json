@@ -26,6 +26,7 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "bootstrap-icons": "^1.13.1"
   }
 }

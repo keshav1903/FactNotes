@@ -1,18 +1,31 @@
+// server/routes/factcheck.js
 const express = require('express');
-const router  = express.Router();
+const { factCheck } = require('../services/gemini');
 
-router.post('/', (req, res) => {
+const router = express.Router();
+
+router.post('/', async (req, res) => {
   const { sentence } = req.body;
+  if (!sentence) return res.json({ corrections: [] });
 
-  if (/earth\s+is\s+flat/i.test(sentence)) {
+  const timeout = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error('Timeout')), 5000)
+  );
+
+  try {
+    const result = await Promise.race([timeout, factCheck(sentence)]);
+    if (result.status === 'ok') {
+      return res.json({ corrections: [] });
+    }
     return res.json({
       corrections: [{
-        suggestion:  'The Earth is an oblate spheroid.',
-        explanation: 'Satellite imagery and gravity measurements confirm it.'
+        suggestion: result.suggestion,
+        explanation: result.explanation
       }]
     });
+  } catch {
+    return res.json({ corrections: [] });  // Graceful fallback
   }
-  return res.json({ corrections: [] });
 });
 
 module.exports = router;
