@@ -67,6 +67,7 @@ MONGO_URI=mongodb://localhost:27017/factcheck-notepad
 JWT_SECRET=your-super-secure-secret-key
 NODE_ENV=development
 PORT=5000
+GEMINI_API_KEY=your-api-ley
 ```
 
 ## 🚀 Deployment
